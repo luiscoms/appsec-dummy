@@ -6,10 +6,10 @@ require 'dbopen.php';
 <?php
 
 $sql = "SELECT * FROM post";
+$result = $conn->prepare($sql);
+$result->execute();
 
-$result = mysql_query($sql);
-
-while ($record = mysql_fetch_assoc($result)) {
+while ($record = $result->fetch(PDO::FETCH_ASSOC)) {
     echo '<tr>';
     echo '<td><a href="show.php?id=' . $record['id'] . '">' . $record['titulo'] . '</a></td>';
     echo '</tr>';

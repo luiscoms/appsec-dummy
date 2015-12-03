@@ -1,4 +1,3 @@
 <?php
-error_reporting(1);
-$conn = mysql_connect('localhost', 'appsec', 'appsec');
-mysql_select_db('appsec');
+$dsn = 'mysql:=host=localhost;dbname=appsec';
+$conn = new PDO($dsn, 'appsec', 'appsec');
